@@ -33,10 +33,7 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 3:
-                while(!is_empty(minhaPilha)){
-                    to_empty(minhaPilha)
-                    printf("\nValor: %d", valor);
-                }
+                to_empty(minhaPilha);
                 break;
         }
     }while(menu != 4);
