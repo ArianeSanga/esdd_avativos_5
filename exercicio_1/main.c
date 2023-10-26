@@ -1,5 +1,6 @@
 #include "pilha.h"
 
+
 int main(int argc, char** argv) {
     Pilha minhaPilha;
     int menu;
@@ -34,8 +35,15 @@ int main(int argc, char** argv) {
                 break;
             case 3:
                 to_empty(minhaPilha);
+                
+                if(is_empty(minhaPilha)){
+                    printf("A pilha está vazia!\n");
+                }else{
+                    printf("Error...\n");
+                }
                 break;
         }
     }while(menu != 4);
+
     return 0;
 }
