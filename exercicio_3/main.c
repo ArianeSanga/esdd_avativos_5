@@ -1,49 +1,44 @@
 #include "pilha.h"
 
+int main(int argc, char** argv){
 
-int main(int argc, char** argv) {
     Pilha minhaPilha;
-    int menu;
-    Tipo_Informacao valor;
+    Pilha auxiliar;
+    int valor;
+
+    printf("-----CONVERSAO DE BINARIOS-----\n\n");
+
+    do{
+        printf("Digite um valor a ser convertido: ");
+        scanf("%d", &valor);
+
+        if(valor < 0){
+            printf("Digite um valor valido!!\n");
+        }
+    } while (valor < 0);
 
     init(&minhaPilha);
 
-    do{
-        printf("\n1 - Empilha");
-        printf("\n2 - Desempilha");
-        printf("\n3 - Esvaziar");
-        printf("\n4 - Sair");
-        printf("\nOpcao: ");
-        scanf("%d", &menu);
+    int resto = 0;
+    printf("RESTO: ");
+    while (valor > 0){
+        resto = valor % 2;
+        valor = valor / 2;
+        push(minhaPilha, resto);
+        printf("%d, ", resto);
+    }
 
-        switch(menu){
-            case 1:
-                printf("\nEmpilha\n\n\tValor: ");
-                scanf("%d", &valor);
-                if(push(minhaPilha, valor)){
-                    printf("\nEmpilhado com sucesso\n");
-                }else{
-                    printf("\nEstouro de pilha\n");
-                }
-                break;
-            case 2:
-                if(pop(minhaPilha, &valor)){
-                    printf("\nDesempilha\n\n\tValor: %d", valor);
-                }else{
-                    printf("\nPilha vazia\n");
-                }
-                break;
-            case 3:
-                to_empty(minhaPilha);
-                
-                if(is_empty(minhaPilha)){
-                    printf("A pilha está vazia!\n");
-                }else{
-                    printf("Error...\n");
-                }
-                break;
-        }
-    }while(menu != 4);
+    printf("\n");
 
-    return 0;
+    init(&auxiliar);
+
+    int digito;
+    printf("RESULTADO: ");
+    while (!is_empty(minhaPilha)){
+        pop(minhaPilha, &digito);
+        push(auxiliar, digito);
+        printf("%d", digito);
+    }
+    
+    printf("\n");
 }

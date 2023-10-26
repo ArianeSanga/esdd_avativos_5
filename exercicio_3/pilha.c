@@ -32,10 +32,6 @@ bool is_empty(Pilha pilha){
 
 }
 
-void to_empty(Pilha pilha){
-    pilha->topo = -1;
-}
-
 
 bool push(Pilha pilha, Tipo_Informacao elemento){
 	bool deuCerto = false;
