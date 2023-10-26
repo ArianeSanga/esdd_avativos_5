@@ -38,8 +38,9 @@ bool is_full(Pilha pilha);
 */
 bool is_empty(Pilha pilha);
 
-
-
+/*
+ * Operação que desenpillha os elementos
+*/
 void to_empty(Pilha pilha);
 
 
